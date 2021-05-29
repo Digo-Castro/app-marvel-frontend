@@ -1,14 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 
 const App = () => (
   <Switch>
-    {/* <Route exact path="/" component={Home} /> */}
+    <Route exact path="/" component={Home} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/register" component={Register} />
-    {/* <Route exact path="/edit-user" component={EditUser} /> */}
+    {/* <Route exact path="/user" component={EditUser} /> */}
     {/* <Route exact path="/comics" component={Comics} /> */}
     {/* <Route exact path="/characters" component={Characters} /> */}
     {/* <Route exact path="/comics/:id" component={ComicsDetails} /> */}

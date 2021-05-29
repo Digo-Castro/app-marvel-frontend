@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
+import MarvelContext from '../context/MarvelContext';
 import APIGeneralRequests from '../services/APIGeneralRequests';
 import EMAIL_REGEX from '../services/consts';
 
 const Login = () => {
+  const { setName, setEmail } = useContext(MarvelContext);
   const [nameValid, setNameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [redirect, setRedirect] = useState(false);
@@ -14,18 +16,22 @@ const Login = () => {
     const request = await APIGeneralRequests(name, email, 'login');
     const token = await request.token;
     const status = await request.registred;
-    console.log(token);
-    console.log(status);
     if (token !== null) {
       localStorage.setItem(`${email}`, `${token}`);
+      setName(name);
+      setEmail(email);
       return setRedirect(true);
-    };
+    }
+
     if (status === null) {
       setError('Nome ou e-mail incorretos');
-      return setShowError(true);}
+      return setShowError(true);
+    }
+
     if (status === false) {
       setError('Usuário não encontrado');
-      return setShowError(true);}
+      return setShowError(true);
+    }
   };
 
   const handleClick = () => {
@@ -52,7 +58,7 @@ const Login = () => {
       }
       return setEmailValid(false);
     }
-  }
+  };
 
   return (
     <main>
@@ -64,31 +70,33 @@ const Login = () => {
           <label htmlFor="name">
             Nome:
             <input
-            type="text"
-            name="name"
-            id="name"
-            maxLength="20"
-            placeholder="min 3 caracteres"
-            onChange={ handleChange }
-            required />
+              type="text"
+              name="name"
+              id="name"
+              maxLength="20"
+              placeholder="min 3 caracteres"
+              onChange={handleChange}
+              required
+            />
           </label>
           <label htmlFor="email">
             E-mail:
             <input
-            type="email"
-            name="email"
-            id="email"
-            maxLength="40"
-            placeholder="seu email"
-            onChange={ handleChange }
-            required />
+              type="email"
+              name="email"
+              id="email"
+              maxLength="40"
+              placeholder="seu email"
+              onChange={handleChange}
+              required
+            />
           </label>
           <div className="btn-container">
             <button
-            type="button"
-            className="btn success"
-            onClick={ handleClick }
-            disabled={ nameValid && emailValid ? false : true}
+              type="button"
+              className="btn success"
+              onClick={handleClick}
+              disabled={!(nameValid && emailValid)}
             >
               Login
             </button>
@@ -98,7 +106,7 @@ const Login = () => {
           <span>Já é cadastrado?</span>
           <Link to="/login" className="link">Clique aqui!</Link>
         </div>
-        {redirect ? <Redirect to='/' /> : ''}
+        {redirect ? <Redirect to="/" /> : ''}
         {showError ? <p>{error}</p> : ''}
       </div>
     </main>

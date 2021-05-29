@@ -6,6 +6,10 @@ import MarvelContext from './MarvelContext';
 function MarvelProvider({ children }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [favorites, setFavorites] = useState({});
+  const [collection, setCollection] = useState('comics');
+  const [curToken, setCurToken] = useState('');
+  const [cardsList, setCardsList] = useState([]);
 
   return (
     <MarvelContext.Provider value={
@@ -14,6 +18,14 @@ function MarvelProvider({ children }) {
         setName,
         email,
         setEmail,
+        favorites,
+        setFavorites,
+        collection,
+        setCollection,
+        curToken,
+        setCurToken,
+        cardsList,
+        setCardsList,
       }
   }
     >

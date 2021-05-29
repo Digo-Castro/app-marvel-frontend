@@ -41,7 +41,7 @@ const Register = () => {
       }
       return setEmailValid(false);
     }
-  }
+  };
 
   return (
     <main>
@@ -53,31 +53,33 @@ const Register = () => {
           <label htmlFor="name">
             Nome:
             <input
-            type="text"
-            name="name"
-            id="name"
-            maxLength="20"
-            placeholder="min 3 caracteres"
-            onChange={ handleChange }
-            required />
+              type="text"
+              name="name"
+              id="name"
+              maxLength="20"
+              placeholder="min 3 caracteres"
+              onChange={handleChange}
+              required
+            />
           </label>
           <label htmlFor="email">
             E-mail:
             <input
-            type="email"
-            name="email"
-            id="email"
-            maxLength="40"
-            placeholder="seu email"
-            onChange={ handleChange }
-            required />
+              type="email"
+              name="email"
+              id="email"
+              maxLength="40"
+              placeholder="seu email"
+              onChange={handleChange}
+              required
+            />
           </label>
           <div className="btn-container">
             <button
-            type="button"
-            className="btn success"
-            onClick={ handleClick }
-            disabled={ nameValid && emailValid ? false : true}
+              type="button"
+              className="btn success"
+              onClick={handleClick}
+              disabled={!(nameValid && emailValid)}
             >
               Cadastrar
             </button>
@@ -87,7 +89,7 @@ const Register = () => {
           <span>Já é cadastrado?</span>
           <Link to="/login" className="link">Clique aqui!</Link>
         </div>
-        {redirect ? <Redirect to='/login' /> : ''}
+        {redirect ? <Redirect to="/login" /> : ''}
         {showError ? <p>Usuário já cadastrado!</p> : ''}
       </div>
     </main>
