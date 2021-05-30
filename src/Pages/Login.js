@@ -106,8 +106,8 @@ const Login = () => {
           <span>Já é cadastrado?</span>
           <Link to="/login" className="link">Clique aqui!</Link>
         </div>
-        {redirect ? <Redirect to="/" /> : ''}
-        {showError ? <p>{error}</p> : ''}
+        {redirect && <Redirect to="/" />}
+        {showError && <p>{error}</p>}
       </div>
     </main>
   );

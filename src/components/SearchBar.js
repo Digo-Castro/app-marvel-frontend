@@ -36,7 +36,7 @@ const SearchBar = () => {
         </form>
         <button type="button" onClick={handleClick} className="btn">Search</button>
       </div>
-      {showError ? <p className="message-error">Not found</p> : ''}
+      {showError && <p className="message-error">Not found</p>}
     </section>
   );
 };

@@ -89,8 +89,8 @@ const Register = () => {
           <span>Já é cadastrado?</span>
           <Link to="/login" className="link">Clique aqui!</Link>
         </div>
-        {redirect ? <Redirect to="/login" /> : ''}
-        {showError ? <p>Usuário já cadastrado!</p> : ''}
+        {redirect && <Redirect to="/login" />}
+        {showError && <p>Usuário já cadastrado!</p>}
       </div>
     </main>
   );

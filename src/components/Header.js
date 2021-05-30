@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import MarvelContext from '../context/MarvelContext';
 import logo from '../images/marvelLogo.svg';
 
 const Header = () => {
   const { setCollection } = useContext(MarvelContext);
+  const [redirect, setRedirect] = useState(false);
   const handleClick = (event) => {
     const { value } = event.target;
     setCollection(value);
+    setRedirect(true);
   };
 
   return (
@@ -34,6 +36,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      {redirect && <Redirect to="/" />}
     </header>
   );
 };
