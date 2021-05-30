@@ -7,7 +7,7 @@ const Card = ({ dataCard }) => {
   const { collection } = useContext(MarvelContext);
 
   const { id, thumbnail } = dataCard;
-  const SRC = `${thumbnail.path}/portrait_incredible.${thumbnail.extension}`;
+  const SRC = `${thumbnail.path}/portrait_xlarge.${thumbnail.extension}`;
   const cardTitle = (collection === 'comics' ? dataCard.title : dataCard.name);
   return (
     <section className="card-container">

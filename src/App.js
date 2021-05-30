@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import CardDetail from './Pages/CardDetail';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Profile from './Pages/Profile';
@@ -11,10 +12,7 @@ const App = () => (
     <Route exact path="/login" component={Login} />
     <Route exact path="/register" component={Register} />
     <Route exact path="/profile" component={Profile} />
-    {/* <Route exact path="/comics" component={Comics} /> */}
-    {/* <Route exact path="/characters" component={Characters} /> */}
-    {/* <Route exact path="/comics/:id" component={ComicsDetails} /> */}
-    {/* <Route exact path="/characters/:id" component={CharactersDetails} /> */}
+    <Route exact path="/card/:id" component={CardDetail} />
     {/* <Route exact path="/favorites" component={Favorites} /> */}
     {/* <Route exact path="/favorites/comics" component={FavComics} /> */}
     {/* <Route exact path="/favorites/characters" component={FavCharacters} /> */}

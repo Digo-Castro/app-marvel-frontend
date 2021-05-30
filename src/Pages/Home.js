@@ -15,6 +15,7 @@ const Home = () => {
     favorites,
     setFavorites,
     setCurToken,
+    favoritesUpdate,
   } = useContext(MarvelContext);
   const [redirect, setRedirect] = useState(false);
 
@@ -22,9 +23,18 @@ const Home = () => {
     const verifyToken = await APIGet(token);
     if (verifyToken.status === 500) return setRedirect(true);
     const { data } = verifyToken;
+    console.log(data.favorites);
     if (!name || !email || data.name !== name || data.email !== email) return setRedirect(true);
     setCurToken(token);
-    return setFavorites(data.favorites);
+    console.log(favorites.comics.length);
+    if (favorites.comics.length > 1 || favorites.comics.length > 1) {
+      await setFavorites(favorites);
+      return favoritesUpdate();
+    }
+    if (favorites.comics.length < 2 && favorites.comics.length < 2) {
+      await setFavorites(data.favorites);
+      return favoritesUpdate();
+    }
   };
 
   const getStorageToken = () => {

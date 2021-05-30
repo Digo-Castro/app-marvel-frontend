@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MarvelContext from '../context/MarvelContext';
 import APIEditRequest from '../services/APIEditRequest';
@@ -104,6 +105,7 @@ const Profile = () => {
           {showError && <p>{error}</p>}
         </div>
       </main>
+      <Footer />
     </>
   );
 };
