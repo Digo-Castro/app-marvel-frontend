@@ -62,55 +62,53 @@ const Login = () => {
   };
 
   return (
-    <main>
-      <div className="form-container">
-        <div className="form-title">
-          <span>Login</span>
-        </div>
-        <form className="form">
-          <label htmlFor="name">
-            Name:
-            <input
-              type="text"
-              name="name"
-              id="name"
-              maxLength="20"
-              placeholder="Tony Stark"
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label htmlFor="email">
-            E-mail:
-            <input
-              type="email"
-              name="email"
-              id="email"
-              maxLength="40"
-              placeholder="tony@avangers.com"
-              onChange={handleChange}
-              required
-            />
-          </label>
-          {showError && <p className="error">{error}</p>}
-          <div className="btn-container">
-            <button
-              type="button"
-              className="btn-success"
-              onClick={handleClick}
-              disabled={!(nameValid && emailValid)}
-            >
-              Login
-            </button>
-          </div>
-        </form>
-        <div className="redirect-container">
-          <span>First time here?</span>
-          <Link to="/register" className="link">Register!</Link>
-        </div>
-        {redirect && <Redirect to="/" />}
+    <div className="form-container">
+      <div className="form-title">
+        <span>Login</span>
       </div>
-    </main>
+      <form className="form">
+        <label htmlFor="name">
+          Name:
+          <input
+            type="text"
+            name="name"
+            id="name"
+            maxLength="20"
+            placeholder="Tony Stark"
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label htmlFor="email">
+          E-mail:
+          <input
+            type="email"
+            name="email"
+            id="email"
+            maxLength="40"
+            placeholder="tony@avangers.com"
+            onChange={handleChange}
+            required
+          />
+        </label>
+        {showError && <p className="error">{error}</p>}
+        <div className="btn-container">
+          <button
+            type="button"
+            className="btn-success"
+            onClick={handleClick}
+            disabled={!(nameValid && emailValid)}
+          >
+            Login
+          </button>
+        </div>
+      </form>
+      <div className="redirect-container">
+        <span>First time here?</span>
+        <Link to="/register" className="link">Register!</Link>
+      </div>
+      {redirect && <Redirect to="/" />}
+    </div>
   );
 };
 

@@ -27,7 +27,6 @@ const CardDetail = ({ match }) => {
     if (collection === 'comics') {
       const detail = await getMarvelAPI('comicId', id);
       const { results } = detail.data;
-      console.log(results);
       setTitle(results[0].title);
       setThumbnail(results[0].thumbnail);
       setId(results[0].id);
@@ -159,17 +158,16 @@ const CardDetail = ({ match }) => {
     return notFavoriteHeart;
   };
 
-  useEffect(() => initialFavorites(), [isLoading]);
+  useEffect(() => {
+    initialFavorites();
+  }, [isLoading]);
 
-  if (isLoading) {
-    getDetail();
-    return <p>Loading</p>;
-  }
-
+  if (isLoading) getDetail();
+  if (isLoading) return <p>Loading</p>;
   return (
     <>
       <Header />
-      <main>
+      <main className="main">
         <section className="detail-card-container">
           <div className="detail-card-main">
             <div className="detail-card-thumbnail-container">

@@ -15,9 +15,6 @@ const App = () => (
     <Route exact path="/profile" component={Profile} />
     <Route exact path="/card/:id" component={CardDetail} />
     <Route exact path="/favorites" component={Favorites} />
-    {/* <Route exact path="/favorites/comics" component={FavComics} /> */}
-    {/* <Route exact path="/favorites/characters" component={FavCharacters} /> */}
-    {/* <Route component={NotFound} /> */}
   </Switch>
 );
 

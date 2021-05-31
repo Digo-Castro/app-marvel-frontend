@@ -44,55 +44,53 @@ const Register = () => {
   };
 
   return (
-    <main>
-      <div className="form-container">
-        <div className="form-title">
-          <span className="register-title">Register</span>
-        </div>
-        <form className="form">
-          <label htmlFor="name">
-            Name:
-            <input
-              type="text"
-              name="name"
-              id="name"
-              maxLength="20"
-              placeholder="Tony Stark"
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label htmlFor="email">
-            E-mail:
-            <input
-              type="email"
-              name="email"
-              id="email"
-              maxLength="40"
-              placeholder="tony@avengers.com"
-              onChange={handleChange}
-              required
-            />
-          </label>
-          {showError && <p className="error">User already registred!</p>}
-          <div className="btn-container">
-            <button
-              type="button"
-              className="btn-success"
-              onClick={handleClick}
-              disabled={!(nameValid && emailValid)}
-            >
-              Register
-            </button>
-          </div>
-        </form>
-        <div className="redirect-container">
-          <span>Registred?</span>
-          <Link to="/login" className="link">Click here!</Link>
-        </div>
-        {redirect && <Redirect to="/login" />}
+    <div className="form-container">
+      <div className="form-title">
+        <span className="register-title">Register</span>
       </div>
-    </main>
+      <form className="form">
+        <label htmlFor="name">
+          Name:
+          <input
+            type="text"
+            name="name"
+            id="name"
+            maxLength="20"
+            placeholder="Tony Stark"
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label htmlFor="email">
+          E-mail:
+          <input
+            type="email"
+            name="email"
+            id="email"
+            maxLength="40"
+            placeholder="tony@avengers.com"
+            onChange={handleChange}
+            required
+          />
+        </label>
+        {showError && <p className="error">User already registred!</p>}
+        <div className="btn-container">
+          <button
+            type="button"
+            className="btn-success"
+            onClick={handleClick}
+            disabled={!(nameValid && emailValid)}
+          >
+            Register
+          </button>
+        </div>
+      </form>
+      <div className="redirect-container">
+        <span>Registred?</span>
+        <Link to="/login" className="link">Click here!</Link>
+      </div>
+      {redirect && <Redirect to="/login" />}
+    </div>
   );
 };
 

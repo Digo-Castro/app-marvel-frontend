@@ -2,13 +2,13 @@
   background-color: white;
   height: 570px;
   margin: auto;
-  width: 80%;
+  width: 100%;
   padding: 30px 50px;
 }
 
 .detail-card-main {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .detail-card-thumbnail {
@@ -71,4 +71,14 @@
 .detail-list-title {
   margin-left: 20px;
   margin-top: 20px;
+}
+
+.main {
+  height: 570px;
+  margin: auto;
+  width: 80%;
+}
+
+.infos-container {
+  width: 70%;
 }
