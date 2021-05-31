@@ -47,17 +47,17 @@ const Register = () => {
     <main>
       <div className="form-container">
         <div className="form-title">
-          <span>Cadastra-se</span>
+          <span className="register-title">Register</span>
         </div>
         <form className="form">
           <label htmlFor="name">
-            Nome:
+            Name:
             <input
               type="text"
               name="name"
               id="name"
               maxLength="20"
-              placeholder="min 3 caracteres"
+              placeholder="Tony Stark"
               onChange={handleChange}
               required
             />
@@ -69,7 +69,7 @@ const Register = () => {
               name="email"
               id="email"
               maxLength="40"
-              placeholder="seu email"
+              placeholder="tony@avengers.com"
               onChange={handleChange}
               required
             />
@@ -81,16 +81,16 @@ const Register = () => {
               onClick={handleClick}
               disabled={!(nameValid && emailValid)}
             >
-              Cadastrar
+              Register
             </button>
           </div>
         </form>
-        <div className="redirect-conteiner">
-          <span>Já é cadastrado?</span>
-          <Link to="/login" className="link">Clique aqui!</Link>
+        <div className="redirect-container">
+          <span>Registred?</span>
+          <Link to="/login" className="link">Click here!</Link>
         </div>
         {redirect && <Redirect to="/login" />}
-        {showError && <p>Usuário já cadastrado!</p>}
+        {showError && <p>User already registred!</p>}
       </div>
     </main>
   );

@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header {
+  background-color: rgb(17, 15, 15);
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  padding: 10px 30px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.logo {
+  height: 50px;
+}
+
+.header .btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+}
+
+.header .btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.header ul {
+  align-items: center;
+  display: flex;
+  list-style: none;
+}
+
+.header li {
+  margin: 10px;
+}

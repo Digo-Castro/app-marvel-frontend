@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import MarvelContext from '../context/MarvelContext';
 import APIGeneralRequests from '../services/APIGeneralRequests';
 import EMAIL_REGEX from '../services/consts';
+import '../css/pageForms.css';
 
 const Login = () => {
   const { setName, setEmail } = useContext(MarvelContext);
@@ -68,13 +69,13 @@ const Login = () => {
         </div>
         <form className="form">
           <label htmlFor="name">
-            Nome:
+            Name:
             <input
               type="text"
               name="name"
               id="name"
               maxLength="20"
-              placeholder="min 3 caracteres"
+              placeholder="Tony Stark"
               onChange={handleChange}
               required
             />
@@ -86,7 +87,7 @@ const Login = () => {
               name="email"
               id="email"
               maxLength="40"
-              placeholder="seu email"
+              placeholder="tony@avangers.com"
               onChange={handleChange}
               required
             />
@@ -102,9 +103,9 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <div className="redirect-conteiner">
-          <span>Não tem cadastro?</span>
-          <Link to="/register" className="link">Clique aqui!</Link>
+        <div className="redirect-container">
+          <span>First time here?</span>
+          <Link to="/register" className="link">Register!</Link>
         </div>
         {redirect && <Redirect to="/" />}
         {showError && <p>{error}</p>}

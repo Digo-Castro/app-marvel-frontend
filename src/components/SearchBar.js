@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import MarvelContext from '../context/MarvelContext';
 import getMarvelAPI from '../services/marvelAPI/getsMarvelAPI';
+import '../css/search.css';
 
 const SearchBar = () => {
   const { collection, setCardsList } = useContext(MarvelContext);

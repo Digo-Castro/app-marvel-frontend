@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/hero.css';
 
 const Hero = () => (
   <section className="hero-container">

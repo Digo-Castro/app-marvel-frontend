@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import MarvelContext from '../context/MarvelContext';
 import logo from '../images/marvelLogo.svg';
+import '../css/header.css';
 
 const Header = () => {
   const { setCollection } = useContext(MarvelContext);

@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.search-box-container {
+  align-items: center;
+  background-color: white;
+  box-shadow: 2px 0 5px black;
+  display: flex;
+  height: 50px;
+  justify-content: flex-end;
+  padding: 0 50px;
+}
+
+.search-bar-container {
+  position: sticky;
+  top: 70px;
+}
+
+.btn {
+  background-color: rgb(61, 1, 1);
+  border: none;
+  height: 30px;
+  width: 80px;
+}
+
+.search-form {
+  width: 250px;
+}
+
+.search-input {
+  width: 220px;
+}
