@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import github from '../images/github.svg';
 import linkedin from '../images/linkedin.svg';

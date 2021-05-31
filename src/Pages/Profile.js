@@ -1,20 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MarvelContext from '../context/MarvelContext';
 import APIEditRequest from '../services/APIEditRequest';
+import APIGet from '../services/APIGet';
 import EMAIL_REGEX from '../services/consts';
 
 const Profile = () => {
   const {
-    name, setName, email, setEmail, favorites,
+    name, email, setName, setEmail,
   } = useContext(MarvelContext);
   const [nameValid, setNameValid] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const [error, setError] = useState('');
   const [editName, setEditName] = useState(false);
   const [editEmail, setEditEmail] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
   const editUser = async () => {
     const OLDEmail = email;
@@ -22,8 +23,10 @@ const Profile = () => {
     if (!emailValid && editEmail) return setEditEmail(false);
     const NEWName = document.querySelector('#name').value;
     const NEWEmail = document.querySelector('#email').value;
-    const request = await APIEditRequest(OLDEmail, NEWName, NEWEmail);
-    console.log(request);
+    await APIEditRequest(OLDEmail, NEWName, NEWEmail);
+    if (nameValid) setName(NEWName);
+    if (emailValid) setEmail(NEWEmail);
+    return 1;
   };
 
   const handleChange = (event) => {
@@ -44,9 +47,25 @@ const Profile = () => {
     }
   };
 
+  const authorization = async (token) => {
+    const verifyToken = await APIGet(token);
+    if (verifyToken.status === 500) return setRedirect(true);
+    const { data } = verifyToken;
+
+    if (!name || !email || data.name !== name || data.email !== email) return setRedirect(true);
+  };
+
+  const getStorageToken = () => {
+    const storageToken = localStorage.getItem(email);
+    authorization(storageToken);
+  };
+
+  useEffect(() => getStorageToken(), []);
+
   return (
     <>
       <Header />
+      {redirect && <Redirect to="/login" />}
       <main>
         <div className="form-container">
           <div className="form-title">
@@ -102,7 +121,6 @@ const Profile = () => {
               </>
             )}
           </div>
-          {showError && <p>{error}</p>}
         </div>
       </main>
       <Footer />

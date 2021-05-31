@@ -16,7 +16,6 @@ const SearchBar = () => {
     }
     const search = await getMarvelAPI('charName', inputText);
     if (search.data.results.length < 1) return setShowError(true);
-    console.log(search);
     return setCardsList(search.data.results);
   };
 

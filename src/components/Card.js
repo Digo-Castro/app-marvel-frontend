@@ -5,7 +5,6 @@ import MarvelContext from '../context/MarvelContext';
 
 const Card = ({ dataCard }) => {
   const { collection } = useContext(MarvelContext);
-
   const { id, thumbnail } = dataCard;
   const SRC = `${thumbnail.path}/portrait_xlarge.${thumbnail.extension}`;
   const cardTitle = (collection === 'comics' ? dataCard.title : dataCard.name);

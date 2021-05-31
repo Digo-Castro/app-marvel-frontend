@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import MarvelContext from './MarvelContext';
@@ -16,9 +16,7 @@ function MarvelProvider({ children }) {
   });
 
   const favoritesUpdate = async () => {
-    console.log('chamou');
-    const update = await APIFavorite(email, favorites);
-    console.log(update);
+    await APIFavorite(email, favorites);
     return 1;
   };
 

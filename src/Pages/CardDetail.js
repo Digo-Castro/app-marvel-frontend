@@ -10,7 +10,7 @@ import notFavoriteHeart from '../images/favoriteBorderBlack.svg';
 
 const CardDetail = ({ match }) => {
   const {
-    collection, favorites, setFavorites, favoritesUpdate,
+    collection, setCollection, favorites, setFavorites, favoritesUpdate,
   } = useContext(MarvelContext);
   const [Title, setTitle] = useState('');
   const [Id, setId] = useState(0);
@@ -52,7 +52,7 @@ const CardDetail = ({ match }) => {
     if (collection === 'comics') {
       const comicsList = comics;
       if (comicsList.length > 0) {
-        const search = comicsList.find((item) => item === id);
+        const search = comicsList.find((item) => item.id === id);
         if (search) {
           return setIsFavorite(true);
         }
@@ -61,7 +61,7 @@ const CardDetail = ({ match }) => {
     if (collection === 'characters') {
       const charsList = characters;
       if (charsList.length > 0) {
-        const search = charsList.find((item) => item === id);
+        const search = charsList.find((item) => item.id === id);
         if (search) {
           return setIsFavorite(true);
         }
@@ -69,46 +69,46 @@ const CardDetail = ({ match }) => {
     }
   };
 
-  const handleFavorite = () => {
+  const handleFavorite = async () => {
     const { params: { id } } = match;
     const { characters, comics } = favorites;
     if (collection === 'comics') {
       const comicsList = comics;
       if (comicsList.length < 1) {
-        comicsList.push(id);
-        setFavorites({ characters, comics: comicsList });
+        comicsList.push({ id, Thumbnail, Title });
+        await setFavorites({ characters, comics: comicsList });
         favoritesUpdate();
         return setIsFavorite(true);
       }
-      const search = comicsList.find((item) => item === id);
+      const search = comicsList.find((item) => item.id === id);
       if (search) {
-        const newList = comicsList.filter((item) => item !== id);
-        setFavorites({ characters, comics: newList });
+        const newList = comicsList.filter((item) => item.id !== id);
+        await setFavorites({ characters, comics: newList });
         favoritesUpdate();
         return setIsFavorite(false);
       }
-      comicsList.push(id);
-      setFavorites({ characters, comics: comicsList });
+      comicsList.push({ id, Thumbnail, Title });
+      await setFavorites({ characters, comics: comicsList });
       favoritesUpdate();
       return setIsFavorite(true);
     }
     if (collection === 'characters') {
       const charsList = characters;
       if (charsList.length < 1) {
-        charsList.push(id);
-        setFavorites({ comics, characters: charsList });
+        charsList.push({ id, Thumbnail, Title });
+        await setFavorites({ comics, characters: charsList });
         favoritesUpdate();
         return setIsFavorite(true);
       }
-      const search = charsList.find((item) => item === id);
+      const search = charsList.find((item) => item.id === id);
       if (search) {
-        const newList = charsList.filter((item) => item !== id);
-        setFavorites({ comics, characters: newList });
+        const newList = charsList.filter((item) => item.id !== id);
+        await setFavorites({ comics, characters: newList });
         favoritesUpdate();
         return setIsFavorite(false);
       }
-      charsList.push(id);
-      setFavorites({ comics, characters: charsList });
+      charsList.push({ id, Thumbnail, Title });
+      await setFavorites({ comics, characters: charsList });
       favoritesUpdate();
       return setIsFavorite(true);
     }
@@ -123,7 +123,16 @@ const CardDetail = ({ match }) => {
           {Items.slice(0, limit).map((item) => {
             const resourceURISplit = item.resourceURI.split('/');
             const pathURI = resourceURISplit[(resourceURISplit.length) - 1];
-            return <li key={pathURI}><Link to={`/${pathURI}`}>{item.name}</Link></li>;
+            return (
+              <li key={pathURI}>
+                <Link
+                  to={`/card/${pathURI}`}
+                  onClick={collection === 'comics' ? setCollection('characters') : setCollection('comics')}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            );
           })}
         </ul>
       );

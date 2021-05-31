@@ -64,7 +64,7 @@ const Login = () => {
     <main>
       <div className="form-container">
         <div className="form-title">
-          <span>Cadastra-se</span>
+          <span>Login</span>
         </div>
         <form className="form">
           <label htmlFor="name">
@@ -103,8 +103,8 @@ const Login = () => {
           </div>
         </form>
         <div className="redirect-conteiner">
-          <span>Já é cadastrado?</span>
-          <Link to="/login" className="link">Clique aqui!</Link>
+          <span>Não tem cadastro?</span>
+          <Link to="/register" className="link">Clique aqui!</Link>
         </div>
         {redirect && <Redirect to="/" />}
         {showError && <p>{error}</p>}
