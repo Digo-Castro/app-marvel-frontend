@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import MarvelContext from '../context/MarvelContext';
 import getMarvelAPI from '../services/marvelAPI/getsMarvelAPI';
 import Card from './Card';
+import '../css/galery.css';
 
 const Galery = () => {
   const {

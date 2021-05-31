@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import favoriteHeart from '../images/favoriteBlack.svg';
 import notFavoriteHeart from '../images/favoriteBorderBlack.svg';
+import '../css/detail.css';
 
 const CardDetail = ({ match }) => {
   const {
@@ -26,6 +27,7 @@ const CardDetail = ({ match }) => {
     if (collection === 'comics') {
       const detail = await getMarvelAPI('comicId', id);
       const { results } = detail.data;
+      console.log(results);
       setTitle(results[0].title);
       setThumbnail(results[0].thumbnail);
       setId(results[0].id);
@@ -114,27 +116,38 @@ const CardDetail = ({ match }) => {
     }
   };
 
+  const changeCollection = () => {
+    if (collection === 'comics') {
+      return setCollection('characters');
+    }
+    return setCollection('comics');
+  };
+
   const renderList = () => {
     if (Items) {
       const LIMIT_MAX = 10;
       const limit = (LIMIT_MAX <= Items.length ? LIMIT_MAX : Items.lastItem);
       return (
-        <ul className="detail-list">
-          {Items.slice(0, limit).map((item) => {
-            const resourceURISplit = item.resourceURI.split('/');
-            const pathURI = resourceURISplit[(resourceURISplit.length) - 1];
-            return (
-              <li key={pathURI}>
-                <Link
-                  to={`/card/${pathURI}`}
-                  onClick={collection === 'comics' ? setCollection('characters') : setCollection('comics')}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <>
+          {Items.length > 0 && <h3 className="detail-list-title">Some comics where this character appears:</h3>}
+          <ul className="detail-list">
+            {Items.slice(0, limit).map((item) => {
+              const resourceURISplit = item.resourceURI.split('/');
+              const pathURI = resourceURISplit[(resourceURISplit.length) - 1];
+              return (
+                <li key={pathURI}>
+                  <Link
+                    to={`/card/${pathURI}`}
+                    onClick={changeCollection}
+                    className="detail-item-link"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </>
       );
     }
   };
@@ -168,13 +181,13 @@ const CardDetail = ({ match }) => {
             </div>
             <section className="infos-container">
               <div className="detail-card-title-container">
-                <h1 classNamedetail-card-title>{Title}</h1>
+                <h1 className="detail-card-title">{Title}</h1>
                 <button type="button" className="favorite-btn" onClick={handleFavorite}>
                   <img src={checkHeart()} alt="Favorite Heart" className="favorite-btn" />
                 </button>
               </div>
-              <div className="detail-card-subtitle-container">
-                <h2>ID: {Id}</h2>
+              <div>
+                <h2 className="detail-card-subtitle">ID: {Id}</h2>
               </div>
               <p className="card-description">{Description}</p>
             </section>

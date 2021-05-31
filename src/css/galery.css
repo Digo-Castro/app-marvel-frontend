@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.galery-container {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 50px 80px;
+  width: 100%;
+}

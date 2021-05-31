@@ -10,11 +10,11 @@ const data = async (URL) => {
 
 const getMarvelAPI = async (type, id) => {
   const key = MarvelAPIKeyGen();
-  const URL_CHARACTERS_LIST = `https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=50&ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
+  const URL_CHARACTERS_LIST = `https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=90&ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
   const URL_CHARACTER_BY_NAME = `https://gateway.marvel.com:443/v1/public/characters?name=${id}&ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
   const URL_CHARACTER_BY_ID = `https://gateway.marvel.com:443/v1/public/characters/${id}?ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
   const URL_CHARACTER_BY_COMIC = `https://gateway.marvel.com:443/v1/public/comics/${id}/characters?orderBy=name&limit=10&ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
-  const URL_COMICS_LIST = `https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&noVariants=false&orderBy=title&limit=50&ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
+  const URL_COMICS_LIST = `https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&noVariants=false&orderBy=title&limit=90&ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
   const URL_COMIC_BY_TITLE = `https://gateway.marvel.com:443/v1/public/comics?title=${id}&ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
   const URL_COMIC_BY_ID = `https://gateway.marvel.com:443/v1/public/comics/${id}?ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;
   const URL_COMICS_BY_CHARACTER = `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?format=comic&formatType=comic&noVariants=false&orderBy=title&limit=10&ts=${key.ts}&apikey=${key.publicKey}&hash=${key.hash}`;

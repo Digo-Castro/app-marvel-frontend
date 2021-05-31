@@ -21,19 +21,19 @@ const Header = () => {
       <nav className="nav">
         <ul>
           <li>
-            <button type="button" className="btn" id="comicsBtn" value="comics" onClick={handleClick}>Comics</button>
+            <button type="button" className="btn-header" id="comicsBtn" value="comics" onClick={handleClick}>Comics</button>
           </li>
           <li>
-            <button type="button" className="btn" id="CharBtn" value="characters" onClick={handleClick}>Characters</button>
+            <button type="button" className="btn-header" id="CharBtn" value="characters" onClick={handleClick}>Characters</button>
           </li>
           <li>
-            <Link to="/favorites" className="btn" id="favoritesBtn">Favorites</Link>
+            <Link to="/favorites" className="btn-header" id="favoritesBtn">Favorites</Link>
           </li>
           <li>
-            <Link to="/profile" className="btn" id="profileBtn">Profile</Link>
+            <Link to="/profile" className="btn-header" id="profileBtn">Profile</Link>
           </li>
           <li>
-            <Link to="/login" className="btn" id="logoutBtn">Logout</Link>
+            <Link to="/login" className="btn-header" id="logoutBtn">Logout</Link>
           </li>
         </ul>
       </nav>

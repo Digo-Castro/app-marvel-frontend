@@ -1,0 +1,43 @@
+.favorites-galery {
+  background-color: white;
+  width: 100%;
+  height: 630px;
+}
+
+.favorites-cards-galery {
+  padding: 10px 30px;
+  height: 50%;
+  overflow-x: scroll;
+}
+
+.favorites-cards-galery ul {
+  display: flex;
+}
+
+.favorites-cards-galery li {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  text-align: center;
+  width: 160px;
+}
+
+.favorites-card {
+  align-items: center;
+  border: 1px solid lightslategrey;
+  padding: 10px;
+  height: 180px;
+  margin: 10px 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.favorites-card-image {
+  image-rendering: pixelated;
+  height: 160px;
+}
+
+.favorites-galery-title {
+  font-size: 20px;
+}

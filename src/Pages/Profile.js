@@ -6,6 +6,7 @@ import MarvelContext from '../context/MarvelContext';
 import APIEditRequest from '../services/APIEditRequest';
 import APIGet from '../services/APIGet';
 import EMAIL_REGEX from '../services/consts';
+import '../css/pageForms.css';
 
 const Profile = () => {
   const {
@@ -19,13 +20,22 @@ const Profile = () => {
 
   const editUser = async () => {
     const OLDEmail = email;
+    let NEWName = '';
+    let NEWEmail = '';
+
     if (!nameValid && editName) return setEditName(false);
     if (!emailValid && editEmail) return setEditEmail(false);
-    const NEWName = document.querySelector('#name').value;
-    const NEWEmail = document.querySelector('#email').value;
+    if (editName) {
+      NEWName = document.querySelector('#name').value;
+    }
+    if (editEmail) {
+      NEWEmail = document.querySelector('#email').value;
+    }
     await APIEditRequest(OLDEmail, NEWName, NEWEmail);
     if (nameValid) setName(NEWName);
     if (emailValid) setEmail(NEWEmail);
+    setEditName(false);
+    setEditEmail(false);
     return 1;
   };
 
@@ -67,14 +77,14 @@ const Profile = () => {
       <Header />
       {redirect && <Redirect to="/login" />}
       <main>
-        <div className="form-container">
-          <div className="form-title">
+        <div className="form-container form-profile">
+          <div className="form-title profile-title">
             <span>Profile</span>
           </div>
-          <div className="input-container">
+          <div className="profile-input-container">
             {editName ? (
               <form className="form">
-                <label htmlFor="name">
+                <label htmlFor="name" className="profile-label">
                   Nome:
                   <input
                     type="text"
@@ -84,22 +94,23 @@ const Profile = () => {
                     placeholder={name}
                     onChange={handleChange}
                     required
+                    className="profile-input"
                   />
                 </label>
-                <button type="button" onClick={editUser} className="btn">{nameValid ? 'Submit' : 'Cancel'}</button>
+                <button type="button" onClick={editUser} className="profile-btn">{nameValid ? 'Submit' : 'Cancel'}</button>
               </form>
             ) : (
               <>
                 <p>Name: </p>
                 <p>{name}</p>
-                <button type="button" onClick={() => setEditName(true)} className="btn">Edit</button>
+                <button type="button" onClick={() => setEditName(true)} className="profile-btn">Edit</button>
               </>
             )}
           </div>
-          <div className="input-container">
+          <div className="profile-input-container">
             {editEmail ? (
               <form className="form">
-                <label htmlFor="email">
+                <label htmlFor="email" className="profile-label">
                   E-mail:
                   <input
                     type="email"
@@ -109,15 +120,16 @@ const Profile = () => {
                     placeholder={email}
                     onChange={handleChange}
                     required
+                    className="profile-input"
                   />
                 </label>
-                <button type="button" onClick={editUser} className="btn">{emailValid ? 'Submit' : 'Cancel'}</button>
+                <button type="button" onClick={editUser} className="profile-btn">{emailValid ? 'Submit' : 'Cancel'}</button>
               </form>
             ) : (
               <>
                 <p>Email: </p>
                 <p>{email}</p>
-                <button type="button" onClick={() => setEditEmail(true)} className="btn">Edit</button>
+                <button type="button" onClick={() => setEditEmail(true)} className="profile-btn">Edit</button>
               </>
             )}
           </div>

@@ -1,0 +1,92 @@
+li {
+  list-style: none;
+}
+
+.footer-container {
+  background-color: rgb(17, 15, 15);
+  height: 360px;
+  width: 100%;
+}
+
+.footer-main {
+  padding: 80px 100px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer-botton-logo {
+  background-image: url('../images/marvelLogoBW.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  margin-right: 50px;
+  height: 100px;
+  width: 15%;
+}
+
+.footer-list-item {
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-right: 280px;
+  text-transform: uppercase;
+}
+
+.footer-about{
+  width: 35%;
+}
+
+.footer-about-title {
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.footer-about p {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 25px;
+}
+
+.footer-botton-links {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 6.5%;
+  padding-right: 90px;
+  width: 86%;
+}
+
+.footer-botton-links ul {
+  display: flex;
+}
+
+.icon-link {
+  display: block;
+  height: 35px;
+  width: 35px;
+}
+
+.footer-text-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.footer-botton-links li {
+  margin-left: 30px;
+}
+
+.footer-links-icons {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-botton-links p {
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 40px;
+  margin-right: 630px;
+}

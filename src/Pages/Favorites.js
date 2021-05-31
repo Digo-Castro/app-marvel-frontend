@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MarvelContext from '../context/MarvelContext';
 import APIGet from '../services/APIGet';
+import '../css/favorites.css';
 
 const Favorites = () => {
   const {
@@ -30,18 +31,21 @@ const Favorites = () => {
       <Header />
       {redirect && <Redirect to="/login" />}
       <main>
-        <section>
-          <div>
+        <section className="favorites-galery">
+          <div className="favorites-cards-galery">
+            <h2 className="favorites-galery-title">Comics</h2>
             <ul>
               {favorites.comics.map((comic) => (
                 <li>
                   <Link
+                    className="favorites-card"
                     onClick={() => setCollection('comics')}
                     to={`/card/${comic.id}`}
                   >
                     <img
                       src={`${comic.Thumbnail.path}/portrait_xlarge.${comic.Thumbnail.extension}`}
                       alt={comic.Title}
+                      className="favorites-card-image"
                     />
                   </Link>
                   <h3>{comic.Title}</h3>
@@ -49,17 +53,20 @@ const Favorites = () => {
               ))}
             </ul>
           </div>
-          <div>
+          <div className="favorites-cards-galery">
+            <h2 className="favorites-galery-title">Characters</h2>
             <ul>
               {favorites.characters.map((character) => (
                 <li>
                   <Link
+                    className="favorites-card"
                     onClick={() => setCollection('characters')}
                     to={`/card/${character.id}`}
                   >
                     <img
                       src={`${character.Thumbnail.path}/portrait_xlarge.${character.Thumbnail.extension}`}
                       alt={character.Title}
+                      className="favorites-card-image"
                     />
                   </Link>
                   <h3>{character.Title}</h3>

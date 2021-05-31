@@ -1,0 +1,74 @@
+.detail-card-container {
+  background-color: white;
+  height: 570px;
+  margin: auto;
+  width: 80%;
+  padding: 30px 50px;
+}
+
+.detail-card-main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-card-thumbnail {
+  border: 1px solid lightgray;
+  margin-right: 70px;
+}
+
+.detail-card-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-card-title {
+  font-size: 30px;
+  text-shadow: 2px 2px 3px lightslategray;
+}
+
+.detail-card-subtitle {
+  color: grey;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+.card-description {
+  line-height: 30px;
+  margin-left: 20px;
+  margin-top: 60px;
+  width: 80%;
+}
+
+.favorite-btn {
+  background-color: transparent;
+  border: none;
+  height: 50px;
+  width: 50px;
+}
+
+.detail-list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  height: 150px;
+}
+
+.detail-list li {
+  margin-left: 20px;
+}
+
+.detail-item-link {
+  color: rgb(63, 63, 63);
+  font-weight: bold;
+  transition: .5s;
+}
+
+.detail-item-link:hover {
+  color: black;
+}
+
+.detail-list-title {
+  margin-left: 20px;
+  margin-top: 20px;
+}

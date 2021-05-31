@@ -11,22 +11,22 @@
   background-position: center;
   background-size: cover;
   height: 400px;
-  padding: 150px 5%;
+  padding: 150px 8%;
   width: 100%;
 }
 
-h1 {
+.hero-title {
   color: white;
-  font-size: 60px;
+  font-size: 80px;
 }
 
-h2 {
+.hero-subtitle {
   color: white;
-  font-size: 30px;
-  margin-left: 5%;
+  font-size: 40px;
+  margin-left: 6%;
   margin-top: 20px;
 }
 
-h1, h2 {
+.hero-title, .hero-subtitle {
   text-shadow: 2px 2px 2px black;
 }

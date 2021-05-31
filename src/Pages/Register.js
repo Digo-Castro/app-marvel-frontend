@@ -74,10 +74,11 @@ const Register = () => {
               required
             />
           </label>
+          {showError && <p className="error">User already registred!</p>}
           <div className="btn-container">
             <button
               type="button"
-              className="btn success"
+              className="btn-success"
               onClick={handleClick}
               disabled={!(nameValid && emailValid)}
             >
@@ -90,7 +91,6 @@ const Register = () => {
           <Link to="/login" className="link">Click here!</Link>
         </div>
         {redirect && <Redirect to="/login" />}
-        {showError && <p>User already registred!</p>}
       </div>
     </main>
   );

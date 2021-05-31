@@ -7,6 +7,7 @@ import Hero from '../components/Hero';
 import SearchBar from '../components/SearchBar';
 import MarvelContext from '../context/MarvelContext';
 import APIGet from '../services/APIGet';
+import APIGetUser from '../services/APIGetUser';
 
 const Home = () => {
   const {
@@ -22,9 +23,11 @@ const Home = () => {
     const { data } = verifyToken;
 
     if (!name || !email || data.name !== name || data.email !== email) return setRedirect(true);
-    const { comics, characters } = data.favorites;
-    if (comics || characters) {
-      return setFavorites({ comics, characters });
+    const dbFavorites = await APIGetUser(email);
+    const dbComics = dbFavorites.data.favorites.comics;
+    const dbCharacters = dbFavorites.data.favorites.characters;
+    if (dbComics || dbCharacters) {
+      return setFavorites({ comics: dbComics, characters: dbCharacters });
     }
   };
 

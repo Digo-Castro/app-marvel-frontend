@@ -2,6 +2,7 @@
 import React from 'react';
 import github from '../images/github.svg';
 import linkedin from '../images/linkedin.svg';
+import '../css/footer.css';
 
 const Footer = () => (
   <footer className="footer-container">
@@ -9,13 +10,13 @@ const Footer = () => (
       <div className="footer-botton-logo" />
       <div className="footer-list-links">
         <ul>
-          <li>
+          <li className="footer-list-item">
             <a href="https://www.marvel.com/corporate/about" className="footer-links" target="_blank" rel="noreferrer">About Marvel</a>
           </li>
-          <li>
+          <li className="footer-list-item">
             <a href="https://www.marvelhq.com/" className="footer-links" target="_blank" rel="noreferrer">Marvelhq.com</a>
           </li>
-          <li>
+          <li className="footer-list-item">
             <a href="https://www.disneyplus.com/brand/marvel?cid=DTCI-Synergy-Marvel-Site-Acquisition-Library-US-Marvel-NA-EN-NavFooter-Marvel_DisneyPlus_NavFooter_Evergreen-NA" className="footer-links" target="_blank" rel="noreferrer">Disney+</a>
           </li>
         </ul>
@@ -27,17 +28,18 @@ const Footer = () => (
       </div>
     </div>
     <div className="footer-botton-links">
+      <p>Data provided by Marvel. © 2014 Marvel</p>
       <ul>
         <li>
-          <a href="https://github.com/Digo-Castro" className="footer-links" target="_blank" rel="noreferrer">
+          <a href="https://github.com/Digo-Castro" className="footer-links-icons" target="_blank" rel="noreferrer">
             <img src={github} alt="GitHub" className="icon-link" />
-            <span className="text-link">GitHub</span>
+            <span className="footer-text-link">GitHub</span>
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/dev-rodrigocastro/" className="footer-links" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/dev-rodrigocastro/" className="footer-links-icons" target="_blank" rel="noreferrer">
             <img src={linkedin} alt="LinkedIn" className="icon-link" />
-            <span className="text-link">LinkedIn</span>
+            <span className="footer-text-link">LinkedIn</span>
           </a>
         </li>
       </ul>

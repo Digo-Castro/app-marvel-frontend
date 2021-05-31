@@ -25,12 +25,12 @@ const Login = () => {
     }
 
     if (status === null) {
-      setError('Nome ou e-mail incorretos');
+      setError('Incorrect name or email');
       return setShowError(true);
     }
 
     if (status === false) {
-      setError('Usuário não encontrado');
+      setError('User not found');
       return setShowError(true);
     }
   };
@@ -92,10 +92,11 @@ const Login = () => {
               required
             />
           </label>
+          {showError && <p className="error">{error}</p>}
           <div className="btn-container">
             <button
               type="button"
-              className="btn success"
+              className="btn-success"
               onClick={handleClick}
               disabled={!(nameValid && emailValid)}
             >
@@ -108,7 +109,6 @@ const Login = () => {
           <Link to="/register" className="link">Register!</Link>
         </div>
         {redirect && <Redirect to="/" />}
-        {showError && <p>{error}</p>}
       </div>
     </main>
   );

@@ -2,23 +2,24 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MarvelContext from '../context/MarvelContext';
+import '../css/card.css';
 
 const Card = ({ dataCard }) => {
   const { collection } = useContext(MarvelContext);
   const { id, thumbnail } = dataCard;
   const SRC = `${thumbnail.path}/portrait_xlarge.${thumbnail.extension}`;
   const cardTitle = (collection === 'comics' ? dataCard.title : dataCard.name);
+
   return (
-    <section className="card-container">
+    <Link to={`/card/${id}`} className="card-container">
       <h3 className="card-title">{cardTitle}</h3>
-      <p className="card-id">{id}</p>
+      <p className="card-id">ID: {id}</p>
       <img
         src={SRC}
         alt={cardTitle}
         className="card-thumbnail"
       />
-      <Link to={`/card/${id}`} className="card-link">Details</Link>
-    </section>
+    </Link>
   );
 };
 
