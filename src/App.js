@@ -4,6 +4,7 @@ import CardDetail from './Pages/CardDetail';
 import Favorites from './Pages/Favorites';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
+import NotFound from './Pages/NotFound';
 import Profile from './Pages/Profile';
 import Register from './Pages/Register';
 
@@ -15,6 +16,7 @@ const App = () => (
     <Route exact path="/profile" component={Profile} />
     <Route exact path="/card/:id" component={CardDetail} />
     <Route exact path="/favorites" component={Favorites} />
+    <Route component={NotFound} />
   </Switch>
 );
 
