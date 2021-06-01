@@ -13,6 +13,9 @@ Este projeto é o resultado de um desafio que consiste em cria uma página web q
 - Editar informações de usuários;
 - Recuperar as informações salvas em login posterior.
 
+##### Considerações: A resolução de tela ideal para uma melhor experiência é: 1366 x 768. Um futuro update ajustará a responsividade.
+
+
 ### O Resultado:
 
 App em funcionamento em: https://digo-castro-marvel-app.herokuapp.com/login
