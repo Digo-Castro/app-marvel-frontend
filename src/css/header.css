@@ -18,6 +18,7 @@ a {
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 100;
 }
 
 .logo {
@@ -47,4 +48,8 @@ a {
 
 .header li {
   margin-right: 40px;
+}
+
+.menu-btn {
+  display: none;
 }

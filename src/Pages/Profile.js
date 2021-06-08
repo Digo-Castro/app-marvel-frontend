@@ -73,68 +73,70 @@ const Profile = () => {
   useEffect(() => getStorageToken(), []);
 
   return (
-    <main>
+    <>
       <Header />
-      {redirect && <Redirect to="/login" />}
-      <div className="form-container form-profile">
-        <div className="form-title profile-title">
-          <span>Profile</span>
+      <main className="profile-main">
+        {redirect && <Redirect to="/login" />}
+        <div className="form-container form-profile">
+          <div className="form-title profile-title">
+            <span>Profile</span>
+          </div>
+          <div className="profile-input-container">
+            {editName ? (
+              <form className="form">
+                <label htmlFor="name" className="profile-label">
+                  Nome:
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    maxLength="20"
+                    placeholder={name}
+                    onChange={handleChange}
+                    required
+                    className="profile-input"
+                  />
+                </label>
+                <button type="button" onClick={editUser} className="profile-btn">{nameValid ? 'Submit' : 'Cancel'}</button>
+              </form>
+            ) : (
+              <>
+                <p className="profile-p-label">Name: </p>
+                <p className="profile-p-content">{name}</p>
+                <button type="button" onClick={() => setEditName(true)} className="profile-btn">Edit</button>
+              </>
+            )}
+          </div>
+          <div className="profile-input-container">
+            {editEmail ? (
+              <form className="form">
+                <label htmlFor="email" className="profile-label">
+                  E-mail:
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    maxLength="40"
+                    placeholder={email}
+                    onChange={handleChange}
+                    required
+                    className="profile-input"
+                  />
+                </label>
+                <button type="button" onClick={editUser} className="profile-btn">{emailValid ? 'Submit' : 'Cancel'}</button>
+              </form>
+            ) : (
+              <>
+                <p className="profile-p-label">Email: </p>
+                <p className="profile-p-content">{email}</p>
+                <button type="button" onClick={() => setEditEmail(true)} className="profile-btn">Edit</button>
+              </>
+            )}
+          </div>
         </div>
-        <div className="profile-input-container">
-          {editName ? (
-            <form className="form">
-              <label htmlFor="name" className="profile-label">
-                Nome:
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  maxLength="20"
-                  placeholder={name}
-                  onChange={handleChange}
-                  required
-                  className="profile-input"
-                />
-              </label>
-              <button type="button" onClick={editUser} className="profile-btn">{nameValid ? 'Submit' : 'Cancel'}</button>
-            </form>
-          ) : (
-            <>
-              <p className="profile-p-label">Name: </p>
-              <p className="profile-p-content">{name}</p>
-              <button type="button" onClick={() => setEditName(true)} className="profile-btn">Edit</button>
-            </>
-          )}
-        </div>
-        <div className="profile-input-container">
-          {editEmail ? (
-            <form className="form">
-              <label htmlFor="email" className="profile-label">
-                E-mail:
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  maxLength="40"
-                  placeholder={email}
-                  onChange={handleChange}
-                  required
-                  className="profile-input"
-                />
-              </label>
-              <button type="button" onClick={editUser} className="profile-btn">{emailValid ? 'Submit' : 'Cancel'}</button>
-            </form>
-          ) : (
-            <>
-              <p className="profile-p-label">Email: </p>
-              <p className="profile-p-content">{email}</p>
-              <button type="button" onClick={() => setEditEmail(true)} className="profile-btn">Edit</button>
-            </>
-          )}
-        </div>
-      </div>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 };
 

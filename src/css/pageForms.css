@@ -12,7 +12,7 @@ a {
 body {
   background-image: url('../images/marvelBgNew.png');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 110%;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -29,8 +29,7 @@ main {
   display: flex;
   flex-direction: column;
   height: 500px;
-  margin-left: 47%;
-  margin-top: 115px;
+  margin: 100px auto 80px;
   padding: 5px;
   width: 25.7%;
 }
@@ -49,7 +48,7 @@ main {
 .form-title span {
   color: rgb(255, 208, 0);
   font-family: 'Chewy', cursive;
-  font-size: 45px;
+  font-size: 40px;
   margin-left: 53%;
   margin-top: 100px;
   text-shadow: 2px 2px 0 black;
@@ -154,4 +153,34 @@ button:disabled {
   margin: auto;
   padding-bottom: 10px;
   text-align: center;
+}
+
+@media (min-width: 1367px) {
+  html {
+    background-color: black;
+  }
+
+  body {
+    margin: 0 auto;
+    height: 85vh;
+    width: 75%;
+  }
+
+  .form-container {
+    height: 550px;
+    position: relative;
+    top: 50px;
+  }
+
+  .form-title {
+    height: 150px;
+  }
+
+  .form-title span {
+    margin-top: 100px;
+  }
+
+  .profile-main {
+    margin-bottom: 250px;
+  }
 }
