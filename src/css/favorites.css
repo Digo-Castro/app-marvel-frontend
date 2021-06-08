@@ -41,3 +41,17 @@
 .favorites-galery-title {
   font-size: 20px;
 }
+
+.no-favorites-message-container {
+  align-items: center;
+  background-color: white;
+  display: flex;
+  height: 550px;
+  justify-content: center;
+}
+
+.no-favorites-message {
+  font-weight: bolder;
+  font-size: 30px;
+  color: rgba(15, 15, 15, 0.6);
+}
