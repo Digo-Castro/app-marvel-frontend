@@ -73,7 +73,7 @@ const Profile = () => {
   useEffect(() => getStorageToken(), []);
 
   return (
-    <>
+    <main>
       <Header />
       {redirect && <Redirect to="/login" />}
       <div className="form-container form-profile">
@@ -100,8 +100,8 @@ const Profile = () => {
             </form>
           ) : (
             <>
-              <p>Name: </p>
-              <p>{name}</p>
+              <p className="profile-p-label">Name: </p>
+              <p className="profile-p-content">{name}</p>
               <button type="button" onClick={() => setEditName(true)} className="profile-btn">Edit</button>
             </>
           )}
@@ -126,15 +126,15 @@ const Profile = () => {
             </form>
           ) : (
             <>
-              <p>Email: </p>
-              <p>{email}</p>
+              <p className="profile-p-label">Email: </p>
+              <p className="profile-p-content">{email}</p>
               <button type="button" onClick={() => setEditEmail(true)} className="profile-btn">Edit</button>
             </>
           )}
         </div>
       </div>
       <Footer />
-    </>
+    </main>
   );
 };
 
