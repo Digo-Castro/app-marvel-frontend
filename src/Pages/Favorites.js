@@ -39,8 +39,8 @@ const Favorites = () => {
         : (
           <main>
             <section className="favorites-galery">
+              <h2 className="favorites-galery-title">Comics</h2>
               <div className="favorites-cards-galery">
-                <h2 className="favorites-galery-title">Comics</h2>
                 <ul>
                   {favorites.comics.map((comic) => (
                     <li>
@@ -60,8 +60,8 @@ const Favorites = () => {
                   ))}
                 </ul>
               </div>
+              <h2 className="favorites-galery-title">Characters</h2>
               <div className="favorites-cards-galery">
-                <h2 className="favorites-galery-title">Characters</h2>
                 <ul>
                   {favorites.characters.map((character) => (
                     <li>

@@ -7,10 +7,16 @@ import '../css/header.css';
 const Header = () => {
   const { setCollection } = useContext(MarvelContext);
   const [redirect, setRedirect] = useState(false);
+  const [showNav, setShowNav] = useState('none');
   const handleClick = (event) => {
     const { value } = event.target;
     setCollection(value);
     setRedirect(true);
+  };
+
+  const handleShowNav = () => {
+    if (showNav === 'none') return setShowNav('inline');
+    return setShowNav('none');
   };
 
   return (
@@ -37,6 +43,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <button type="button" className="menu-btn" onClick={handleShowNav}>Menu</button>
       {redirect && <Redirect to="/" />}
     </header>
   );

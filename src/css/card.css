@@ -1,7 +1,6 @@
 .card-container {
   border: 1px solid rgb(179, 179, 179);
   box-shadow: 1px 1px 5px rgb(163, 163, 163);
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
